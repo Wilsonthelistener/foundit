@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My Personal Portfolio</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+    <link href="style.css" type="text/css" rel="stylesheet">
+  <body>
+    <header class="container position-relative">
+      <h1>foundit!</h1>
+      <img src="logo.png" alt="Logo" class="logo">
+    </header>
+    <section class="jumbotron2">
+      <div class="bg-image image1"></div>
+      <div class="bg-image image2"></div>
+      <div class="bg-image image3"></div>
+      <div class="overlay-box2">
+        <label for="imageUpload">
+          <img src="uploadimage.png" alt="Logo" class="logo3" style="cursor: pointer;">
+        </label>
+        <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+        <p class="text1"><strong>Click the button to upload the image!</strong></p>
+        <div class="overlay-box3">
+          <p class="text2"><strong>Where did you find it?</strong></p>
+          <form>
+            <div class="option-group">
+              <div class="busoption">
+                <label>
+                  <input type="radio" name="transport" value="bus"> Bus
+                </label>
+                <select name="bus-option">
+                  <option value="">Choose</option>
+                  <option value="Bus 2">Bus 2</option>
+                  <option value="Bus 2B">Bus 2B</option>
+                  <option value="...">...</option>
+                </select>
+              </div>
+              <div class="mrtoption">
+                <label>
+                  <input type="radio" name="transport" value="mrt"> MRT
+                </label>
+                <select name="mrt-option">
+                  <option value="">Choose</option>
+                  <option value="Downtown Line">Downtown Line</option>
+                  <option value="East Coast Line">East Coast Lone</option>
+                  <option value="...">...</option>
+                </select>
+              </div>
+              <div class="busstopoption">
+                <label>
+                  <input type="radio" name="transport" value="busstop"> Bus stop
+                </label>
+                <select name="busstop-option">
+                  <option value="">Choose</option>
+                  <option value="Blk 01">Blk 01</option>
+                  <option value="Blk 02">Blk 02</option>
+                  <option value="...">...</option>
+                </select>
+              </div>
+              <div class="mrtstationoption">
+                <label>
+                  <input type="radio" name="transport" value="mrtstation"> MRT station
+                </label>
+                <select name="mrtstation-option">
+                  <option value="">Choose</option>
+                  <option value="Bangkit">Bangkit</option>
+                  <option value="Bishan">Bishan</option>
+                  <option value="...">...</option>
+                </select>
+              </div>
+              <div class="othersoption">
+                <label>
+                  <input type="radio" name="transport" value="other"> Other...
+                </label>
+              </div>
+            </div>
+          </form>
+        <div class="overlay-box4">
+          <p class="text3"> <strong>When did you find it?</strong> </p>
+          <div class="dateoption">
+            <label>
+              <input type="radio" name="transport" value="date"> Date
+            </label>
+            <input type="date" name="selected-date">
+          </div>
+          <div class="timeoption">
+            <label>
+              <input type="radio" name="transport" value="time"> Choose a time
+            </label>
+            <input type="time" name="selected-time">
+          </div>
+        </div>
+        <div class="overlay-box5">
+           <p class="text4"> <strong>Where did you pass the item to?</strong> </p>
+           <div class="option-group2">
+              <div class="mrtstationoption2">
+                <label>
+                  <input type="radio" name="transport" value="mrtstation2"> MRT station
+                </label>
+                <select name="mrtstation-option2">
+                  <option value="">Choose</option>
+                  <option value="Bangkit">Bangkit</option>
+                  <option value="Bishan">Bishan</option>
+                  <option value="...">...</option>
+                </select>
+              <div class="busoption2">
+                <label>
+                  <input type="radio" name="transport" value="bus2"> Bus
+                </label>
+                <select name="bus-option2">
+                  <option value="">Choose</option>
+                  <option value="Bus 2">Bus 2</option>
+                  <option value="Bus 2B">Bus 2B</option>
+                  <option value="...">...</option>
+                </select>
+            </div>
+            </div>
+        </div>
+      <a href="submitted.html">
+        <button class="button3"><strong>Submit</strong>
+        </button>
+      </a>
+      </div>
+    </div>
+    </div>
+    </section>
+    <script>
+      const fileInput = document.getElementById('imageUpload');
+      fileInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            document.querySelector('.logo3').src = e.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+    </script>
+  </body>
+  </head>
+</html>
