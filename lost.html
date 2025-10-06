@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My Personal Portfolio</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+    <link href="style.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <header class="container position-relative">
+      <h1>foundit!</h1>
+      <img src="logo.png" alt="Logo" class="logo">
+    </header>
+    <section class="jumbotron2">
+      <div class="bg-image image1"></div>
+      <div class="bg-image image2"></div>
+      <div class="bg-image image3"></div>
+      <div class="overlay-box8">
+        <div class="search-section">
+          <div class="search-container">
+            <div class="search-bar">
+              <input type="text" id="searchInput" placeholder="Search an item...">
+              <button onclick="searchImages()">Search</button>
+            </div>
+            <div class="filters">
+              <select id="colorFilter">
+                <option value="">All Colors</option>
+                <option value="Black">Black</option>
+                <option value="Blue">Blue</option>
+                <option value="...">...</option>
+              </select>
+              <select id="timeFilter">
+                <option value="">All Times</option>
+                <option value="Morning">Morning</option>
+                <option value="Afternoon">Afternoon</option>
+                <option value="Evening">Evening</option>
+              </select>
+            </div>
+        </div>
+        <div id="imageContainer"></div>
+    </div>
+    </div>
+    </section>
+    <script>
+    function searchImages() {
+      const input = document.getElementById("searchInput").value.toLowerCase();const color = document.getElementById("colorFilter").value.toLowerCase();const time = document.getElementById("timeFilter").value.toLowerCase();const container = document.getElementById("imageContainer");container.innerHTML = "";
+      let images = [];
+      if (input.includes("bottle")) {
+        images = [
+      { src: "bottle1.png", link: "bottle1.html", color: "blue", time: "morning" },
+      { src: "bottle2.png", link: "bottle2.html", color: "black", time: "afternoon" },
+      ];
+      } 
+      else {
+        alert("No images found for your search!");
+        return;
+      }
+      const filteredImages = images.filter(img => {
+        const colorMatch = color === "" || img.color === color;
+        const timeMatch = time === "" || img.time === time;
+        return colorMatch && timeMatch;
+      });
+      if (filteredImages.length === 0) {
+        container.innerHTML = "<p>No images match your filters.</p>";
+        return;
+      }
+      filteredImages.forEach(item => {
+        const a = document.createElement("a");
+        a.href = item.link;
+        a.target = "_blank"; // optional
+        const img = document.createElement("img");
+        img.src = item.src;
+        a.appendChild(img);
+        container.appendChild(a);
+      });
+    }
+  </script>
+  </body>
+</html>
